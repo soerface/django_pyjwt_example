@@ -101,10 +101,32 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'django_pyjwt_example.authentication.JWTAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissions'
     ]
 }
+
+JWT_PUBLIC_KEY = """
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA63h1q2ph8PtxjxETS1gT
+1ffP4ae6gE/FtWnPD0IEbCG7RS4qBA7E8TU+fv4dLFmTUK4SL8GNeebOo9UkRg+5
+8FZFlAnhgJFJ/zK17XvNrK8rSxa5ikUiu4Kcl9CDt+vQ8LAAhaMUNTlOmwhQYO2h
+/mEf8uR2bi9xZiJAmIfN6sjt/ali59h581sL2HhIQ7DLimXR191Xu8fJ5nXp8YAj
+kTNOGvdBAeFq0f7j9ZXTWdGB31UMOH9Yhmgi/xOCLCUtbsw0UbShaFDo3/i1zgtw
+333wW1M2chRMIHlORDOh9piVfKYC22WaPbOZLMfMcNcgmJ+W8NYMAh9q3VLavzcO
+HDQxvQU0zoItbkDHmaldHio5N4qQH1Z94xbEve87dLg7W5QEfqMSF8QXvlB0lp/Y
+f4WgHlV4Y0Grb6FfG/g1zfNvE+UoewexcFIUeGTZ7lAuPYmtSGWBXAuxIN7phHyK
+LNF7InpuIAf6kJ1deqGRGzq6UOB9gGQiDtkv/ep98du6c2iXWGmsTcoT5C7DNkDb
+GIJZLEYWULn1mQKbk2dWTR7aEZRgTRjkbSoGpHyZpOl8hCYq8NRSQu5wjIvwwxJy
+iqPWMkFG2/mCBzDhinWWPmIQwOcTjMnt98ahbHGX3/wMqfVoCe09DBUXYXIpP0KL
+Ge2oLhjxoggTe3jh1K9Id5MCAwEAAQ==
+-----END PUBLIC KEY-----
+"""
 
 
 # Internationalization
